@@ -8,21 +8,19 @@ const keypress = require('keypress');
 // Настроим соответствия нажатий на клавиши и действий в игре.
 
 const keyboard = {
-  q: () => console.log('q'),
   w: () => console.log('w'),
-  e: () => console.log('e'),
-  r: () => console.log('r'),
-  t: () => console.log('t'),
-  y: () => console.log('y'),
+  s: () => console.log('s'),
+  a: () => left,
+  d: () => right,
+  v: () => console.log('v'),
 };
 
 // Какая-то функция.
 
-function runInteractiveConsole() {
+function runInteractiveConsole(left, right) {
   keypress(process.stdin);
   process.stdin.on('keypress', (ch, key) => {
     if (key) {
-      // Вызывает команду, соответствующую нажатой кнопке.
       if (key.name in keyboard) {
         keyboard[key.name]();
       }
@@ -37,4 +35,16 @@ function runInteractiveConsole() {
 
 // Давай попробуем запустить этот скрипт!
 
-runInteractiveConsole();
+// runInteractiveConsole();
+
+module.exports = runInteractiveConsole;
+
+// module.exports = {
+//   filterByAge,
+//   filterByScore,
+//   filterByServiceRecord,
+//   sortByScore,
+//   getMeanAge,
+//   getMeanAgeReduce,
+//   getNamesOnly,
+// };
