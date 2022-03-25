@@ -10,19 +10,20 @@ const keypress = require('keypress');
 const keyboard = {
   w: () => console.log('w'),
   s: () => console.log('s'),
-  a: () => left,
-  d: () => right,
-  v: () => console.log('v'),
+  a: (hero) => hero.moveLeft(),
+  d: (hero) => hero.moveRight(),
+  r: (hero) => hero.attack(),
 };
 
 // Какая-то функция.
 
-function runInteractiveConsole(left, right) {
+function runInteractiveConsole(hero) {
+  console.log(keyboard);
   keypress(process.stdin);
   process.stdin.on('keypress', (ch, key) => {
     if (key) {
       if (key.name in keyboard) {
-        keyboard[key.name]();
+        keyboard[key.name](hero);
       }
       // Прерывание программы.
       if (key.ctrl && key.name === 'c') {
@@ -38,13 +39,3 @@ function runInteractiveConsole(left, right) {
 // runInteractiveConsole();
 
 module.exports = runInteractiveConsole;
-
-// module.exports = {
-//   filterByAge,
-//   filterByScore,
-//   filterByServiceRecord,
-//   sortByScore,
-//   getMeanAge,
-//   getMeanAgeReduce,
-//   getNamesOnly,
-// };
