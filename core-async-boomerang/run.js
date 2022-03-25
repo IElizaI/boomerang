@@ -1,11 +1,11 @@
 // Основной файл.
 // Запускает игру.
-const keyboard = require('./src/keyboard');
-const Game = require('./src/Game');
+const keyboard = require("./src/keyboard");
+const Game = require("./src/Game");
 
 // Инициализация игры с настройками.
 const game = new Game({
-  trackLength: 50,
+  trackLength: 20,
 });
 
 // Запуск игры.

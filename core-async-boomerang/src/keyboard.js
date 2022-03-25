@@ -13,9 +13,7 @@ const keyboard = {
   a: (game) => game.hero.moveLeft(),
   d: (game) => game.hero.moveRight(),
   r: (game) => {
-    // game.track[game.hero.boomerang.position] = game.hero.boomerang.skin;
     game.hero.boomerang.skin = "🌀";
-    console.log(game.hero.boomerang.position);
     game.hero.attack();
   },
 };

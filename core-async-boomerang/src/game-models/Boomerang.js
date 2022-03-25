@@ -8,17 +8,17 @@ class Boomerang {
   }
 
   fly() {
-    this.moveRight();
-    this.moveLeft();
+    setInterval(() => {
+      this.moveRight();
+    }, 100);
+    // this.moveLeft();
   }
 
   moveLeft() {
-    // Идём влево.
     this.position -= 1;
   }
 
   moveRight() {
-    // Идём вправо.
     this.position += 1;
   }
 }
