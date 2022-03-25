@@ -10,20 +10,22 @@ const keypress = require('keypress');
 const keyboard = {
   w: () => console.log('w'),
   s: () => console.log('s'),
-  a: (hero) => hero.moveLeft(),
-  d: (hero) => hero.moveRight(),
-  r: (hero) => hero.attack(),
+  a: (game) => game.hero.moveLeft(),
+  d: (game) => game.hero.moveRight(),
+  r: (game) => {
+    this.track[this.boomerang.position] = this.boomerang.skin;
+  },
 };
 
 // Какая-то функция.
 
-function runInteractiveConsole(hero) {
+function runInteractiveConsole(game) {
   console.log(keyboard);
   keypress(process.stdin);
   process.stdin.on('keypress', (ch, key) => {
     if (key) {
       if (key.name in keyboard) {
-        keyboard[key.name](hero);
+        keyboard[key.name](game);
       }
       // Прерывание программы.
       if (key.ctrl && key.name === 'c') {

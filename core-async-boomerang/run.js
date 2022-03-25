@@ -11,4 +11,4 @@ const game = new Game({
 // Запуск игры.
 game.play();
 
-keyboard(game.hero);
+keyboard(game);
