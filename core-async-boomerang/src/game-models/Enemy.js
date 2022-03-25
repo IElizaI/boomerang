@@ -17,7 +17,8 @@ class Enemy {
   }
 
   die() {
-    this.position = '?';
+    this.skin = ' ';
+    // this.position = '?';
     console.log('Enemy is dead!');
   }
 }
