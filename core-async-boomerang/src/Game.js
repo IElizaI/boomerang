@@ -33,6 +33,13 @@ class Game {
     if (this.hero.position === this.enemy.position) {
       this.hero.die();
     }
+    if (
+      this.enemy.position === this.hero.boomerang.position ||
+      this.enemy.position - 1 === this.hero.boomerang.position ||
+      this.enemy.position + 1 === this.hero.boomerang.position
+    ) {
+      this.enemy.die();
+    }
   }
 
   play() {
@@ -43,7 +50,8 @@ class Game {
       this.view.render(this.track);
       this.enemy.moveLeft();
       console.log(this.hero.boomerang.position);
-    }, 250);
+      console.log(this.enemy.position);
+    }, 100);
   }
 }
 
