@@ -7,26 +7,20 @@ class Boomerang {
     this.skin = skin;
   }
 
-  // fly(positionEnemy) {
-  //   setInterval(() => {
-  //     console.log(positionEnemy);
-  //     if (this.position !== positionEnemy) {
-  //       this.moveRight();
-  //     } else {
-  //       this.moveLeft();
-  //     }
-  //   }, 250);
-  // }
+  fly() {
+    setInterval(() => {
+      this.moveRight();
+    }, 100);
+    // this.moveLeft();
+  }
 
-  // moveLeft() {
-  //   // Идём влево.
-  //   this.position -= 1;
-  // }
+  moveLeft() {
+    this.position -= 1;
+  }
 
-  // moveRight() {
-  //   // Идём вправо.
-  //   this.position += 1;
-  // }
+  moveRight() {
+    this.position += 1;
+  }
 }
 
 module.exports = Boomerang;

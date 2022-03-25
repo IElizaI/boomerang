@@ -33,19 +33,11 @@ class Game {
     if (this.hero.position === this.enemy.position) {
       this.hero.die();
     }
-    if (this.enemy.skin === ' ') {
-      this.hero.boomerang.position -= 1;
-      return;
-    }
-    if (this.hero.boomerang.skin === '🌀') {
-      this.hero.boomerang.position += 1;
-      if (this.hero.boomerang.position === this.hero.position + 1) {
-        this.hero.boomerang.skin = ' ';
-        console.log('Enemy is dead!');
-        process.exit();
-      }
-    }
-    if (this.enemy.position === this.hero.boomerang.position) {
+    if (
+      this.enemy.position === this.hero.boomerang.position
+      || this.enemy.position - 1 === this.hero.boomerang.position
+      || this.enemy.position + 1 === this.hero.boomerang.position
+    ) {
       this.enemy.die();
     }
   }
@@ -57,8 +49,9 @@ class Game {
       this.regenerateTrack();
       this.view.render(this.track);
       this.enemy.moveLeft();
-      // console.log(this.hero.boomerang.position);
-    }, 250);
+      console.log(this.hero.boomerang.position);
+      console.log(this.enemy.position);
+    }, 100);
   }
 }
 

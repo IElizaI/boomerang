@@ -14,6 +14,7 @@ const keyboard = {
   d: (game) => game.hero.moveRight(),
   r: (game) => {
     game.hero.boomerang.skin = '🌀';
+    game.hero.attack();
   },
 };
 // Какая-то функция.
