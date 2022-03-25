@@ -33,12 +33,16 @@ class Game {
     if (this.hero.position === this.enemy.position) {
       this.hero.die();
     }
-    if (
-      this.enemy.position === this.hero.boomerang.position ||
-      this.enemy.position - 1 === this.hero.boomerang.position ||
-      this.enemy.position + 1 === this.hero.boomerang.position
-    ) {
+    if (this.enemy.position > this.hero.boomerang.position) {
+      if (this.hero.boomerang.skin === "🌀") {
+        this.hero.boomerang.moveRight();
+      }
+    }
+    if (this.enemy.position <= this.hero.boomerang.position) {
       this.enemy.die();
+    }
+    if (isNaN(this.enemy.position)) {
+      this.hero.boomerang.moveLeft();
     }
   }
 
@@ -49,8 +53,6 @@ class Game {
       this.regenerateTrack();
       this.view.render(this.track);
       this.enemy.moveLeft();
-      console.log(this.hero.boomerang.position);
-      console.log(this.enemy.position);
     }, 100);
   }
 }

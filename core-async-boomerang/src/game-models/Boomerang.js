@@ -8,13 +8,17 @@ class Boomerang {
   }
 
   fly() {
-    setInterval(() => {
-      this.moveRight();
-    }, 100);
-    // this.moveLeft();
+    this.moveRight();
+    this.moveLeft();
   }
 
   moveLeft() {
+    if (this.position === 1) {
+      this.position = "?";
+      console.log("YOU WON! Enemy is dead!");
+      process.exit();
+      // return;
+    }
     this.position -= 1;
   }
 
